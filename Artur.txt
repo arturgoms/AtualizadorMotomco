@@ -1,0 +1,56 @@
+- Alimentar o storage da Amazon (S3) com as calibrações e curvas
+- Para upar os aruivo é preciso executar o programa calibCrypt que está no servidor (R:\ENGENHARIA-FW-SW-HW\SOFTWARES\x86-x64\calibCrypt)
+- Site do validador do INMETRO está no storage (S3) na pasta motomco (os códigos do site estão no drive do Google)
+- As calibrações estão no site da motomco (www.motomco.com.br)
+- Os WebServices estão na Amazon (EC2) no diretório /var/www/html/
+																MotomcoValidator (app do Validador)
+																AppAWS_Motomco (app que recebe as infos dos equipamentos)
+-* Na pasta onde estão os apps existe um arquivo ini.sh que mata o app e o reinicia, caso precise encerrar o app execute esse arquivo.
+
+- Os apicativos de celular estão no Drive
+
+
+
+site do validador
+ - http://s3.amazonaws.com/motomco/resultado.html
+ - http://s3.amazonaws.com/motomco/verificador_assinatura_motomco.html
+ 
+- Os aplicativos do gera senha e do validador estão na pasta (R:\ENGENHARIA-FW-SW-HW\APLICATIVOS)
+
+
+Funções:
+
+	- Desenvolvimento do software e hardware do novo equipamento, tais como, compilação de kernel Linux, criação de scripts de inicialização, desenho de interface gráfica, banco de dados, algoritmos para o cálculo de umidade,
+	adaptações de hardware, protocolos de comunicação com sensores em arquitetura ARM.
+	- Linguagens utilizadas: Python/BASH/HTML/CSS/MongoDB/C/C++/Javascript/NodeJS 
+	- Manuntenção do Validador de Assinatura IMETRO
+	- Alimentação do Storage da Amazon (S3)
+	- Continuação do desenvolvimento da Nuvem 
+	- Aplicativos iOS/Android
+
+
+
+administracao@cttengenharia.com
+
+
+url = "http://34.196.195.39:5001/validator/calc"
+payload = "idCurva=dc63e6790fb14da892548ce02c271164761e2fde&idCalib=606718118&nomeGrao=SOJA%20%3C%2028%25%20REV_03_17&valAssin="+str(225)+"%3B"+str(9658)+"%3B"+str(7999)+"%3B"+str(25)+"%3B"+"numSerie="FRMT-00000"+"%3B"+"dateEq="+datetime.date.today().strftime("%Y")+"%2C"+datetime.date.today().strftime("%d")+"%2C"+datetime.date.today().strftime("%m")+"%2C"+datetime.date.today().strftime("%H")+"%2C"+datetime.date.today().strftime("%M")+"%2C"+datetime.date.today().strftime("%S")
+headers = {
+        'content-type': "application/x-www-form-urlencoded",
+        'cache-control': "no-cache",
+        'postman-token': "1e472f8f-72e7-e094-f499-b007e5199209"
+        }
+
+insmod drivers/usb/gadget/libcomposite.ko
+insmod drivers/usb/gadget/function/usb_f_mass_storage.ko
+insmod drivers/usb/gadget/legacy/g_mass_storage.ko file=/dev/mmcblk0p2
+
+WSGIDaemonProcess AppAtualizador threads=5
+WSGIScriptAlias / /var/www/html/AppAtualizador/AppAtualizador.wsgi
+
+<Directory AppAtualizador>
+    WSGIProcessGroup AppAtualizador
+    WSGIApplicationGroup %{GLOBAL}
+    Order deny,allow
+    Allow from all
+</Directory>

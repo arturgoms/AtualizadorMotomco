@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Motomco Group</title>
+<tr>
+	<td>
+		<CENTER>
+		</br>
+			<img src="static/img/motomco-group.png" width="150" height="51" />
+			<!-- <h4 id="titulo">Validador de Assinatura -->
+		</CENTER>
+	</td>
+</tr>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=2">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<style>
+    body{
+      background: url(static/img/motomco-background.png) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    h4 {
+	  font-size: 1.3vw;
+	  text-align: center;
+	  line-height: 1;
+	  padding: 0;
+	  margin: 0;
+	  color: #004d00; 
+	}
+    #login-box {
+      background-color:#547d54;
+      width:780px;
+      height:250px;
+      margin:20px auto 0px;
+      border-radius:5px;
+    }
+    #login-box-interno {
+      width: 760px;
+      height:230px;
+      background-color:white;
+      position:absolute;
+      margin:10px;
+      border-radius:5px;
+      box-shadow:0px 0px 5px black;
+      overflow:hidden;
+    }
+    #login-box-label {
+      height:45px;
+      text-align:center;
+      font:bold 14px/45px sans-serif;
+      border-top-left-radius:5px;
+      border-top-right-radius:5px;
+      border-bottom:1px solid #bfc3c5;
+      box-shadow:1px 0px 3px black;
+      color:#555555;
+      text-shadow:1px 0px 1px white;
+    }
+    .input-div-busca {
+      margin:20px;
+      padding:5px;
+      background-color:#f2f5f7;
+      border-radius:3px;
+    }
+    .input-div-busca input {
+      width:580px;
+      height:30px;
+      padding-left:5px;
+      font:normal 13px sans-serif;
+      color:#aeaeae;
+      border-radius:3px;
+      border:1px solid #bfc4c6;
+      outline:none;
+    }
+    .input-div-busca:hover {
+      background-color:#e0f1fc;SHA-1 curva / ID Curva
+    }
+    .input-div-busca:hover input {
+      border-color:#7dc6dd;
+    }
+	.input-div-valAssin {
+      margin:20px;
+      padding:5px;
+      background-color:#f2f5f7;
+      border-radius:3px;
+      font:normal 13px sans-serif;
+      /*color:#aeaeae;*/
+      color:#696969;
+    }
+    .input-div-valAssin input {
+      width:710px;
+      height:30px;
+      padding-left:5px;
+      font:normal 13px sans-serif;
+      color:#aeaeae;
+      border-radius:3px;
+      border:1px solid #bfc4c6;
+      outline:none;
+    }
+    .input-div-valAssin:hover {
+      background-color:#e0f1fc;
+    }
+    .input-div-valAssin:hover input {
+      border-color:#7dc6dd;
+    }
+    .input-div-modeloNum {
+      margin:20px;
+      padding:5px;
+      background-color:#f2f5f7;
+      border-radius:3px;
+      font:normal 13px sans-serif;
+      /*color:#aeaeae;*/
+      color:#696969;
+    }
+    .input-div-modeloNum input {
+      width:234px;
+      height:30px;
+      padding-left:5px;
+      font:normal 13px sans-serif;
+      color:#aeaeae;
+      border-radius:3px;
+      border:1px solid #bfc4c6;
+      outline:none;
+    }
+    .input-div-modeloNum:hover {
+      background-color:#e0f1fc;
+    }
+    .iinput-div-modeloNum:hover input {
+      border-color:#7dc6dd;
+    }
+    #btnBuscas {
+      	width:120px;
+	    background-color:#339966;
+	    /*padding:2px 10px;*/
+	    font: 12px sans-serif;
+	    border-radius:6px;
+	    /*text-shadow:0px 1px white;*/
+	    border:1px solid #9eb9c3;
+	    color:#ffffff;
+	    box-shadow:0px 0px 10px #c9c9c9;
+      	border:1px solid #9eb9c3;
+    }
+    #btnBuscas:hover {
+      background-color:#C0C0C0;
+	  color:#ffffff;
+      cursor:pointer;
+    }
+    #btnCali {
+        width:120px;
+      background-color:#339966;
+      /*padding:2px 10px;*/
+      font: 12px sans-serif;
+      border-radius:6px;
+      /*text-shadow:0px 1px white;*/
+      border:1px solid #9eb9c3;
+      color:#ffffff;
+      box-shadow:0px 0px 10px #c9c9c9;
+        border:1px solid #9eb9c3;
+    }
+    #btnCali:hover {
+      background-color:#C0C0C0;
+    color:#ffffff;
+      cursor:pointer;
+    }
+    #botoes {
+      width:710px;
+      margin-left:25px;
+    }
+    #botao {
+      float:right;
+      width:120px;
+      height:35px;
+      background-color:#339966;
+      /*padding:5px 15px;*/
+      font:12px sans-serif;
+      border-radius:6px;
+      /*text-shadow:0px 1px white;*/
+      border:1px solid #9eb9c3;
+      color:#ffffff;
+      box-shadow:0px 0px 10px #c9c9c9;
+    }
+    #botao:hover {
+      background-color:#C0C0C0;
+      cursor:pointer;
+    }
+  </style>
+
+<script>
+function enviarCalibracao() {
+    alert("teste")
+}
+
+function enviarCurva() {
+    var x = document.getElementById("btnBuscas");
+    x.disabled = true;
+}
+          
+</script>
+
+
+</head>
+
+<!-- <body style='background: #FFFFFF'> -->
+<body>
+	<div id="login-box">
+		<div id="login-box-interno">
+			<table style="position:relative;margin-left:auto;margin-right:auto;padding-left:10px;padding-right:10px;padding-top:10px;padding-bottom:10px;">
+
+				<table id="mainFrame" style="position:relative;margin-left:auto;margin-right:auto;padding-left:10px;padding-right:10px;padding-top:10px;padding-bottom:10px;background:#FFFFFF;" >
+
+			    	<!-- <div id="login-box-label">Motomco WS</div> -->
+					</br><h4 id="titulo">Atualizador</h4>
+
+			      	<div class="input-div-busca" id="input-usuario">
+                <form action = "http://localhost:5000/calibracao" method = "POST" 
+                       enctype = "multipart/form-data">
+                  <input id="sha1" type="text" placeholder="Numero de Serie" name="nserie">
+                  <input id="btnCali" type="submit" value="Atualizar">
+                  <input type="file" name="cali">
+                </form>
+                <span style="color:#009933">{{status}}</span>
+			      	</div>
+
+				</table>
+			</table>
+
+		</div>
+	</div>
+	</br>
+	</br>
+	</br>	
+</html>
+
